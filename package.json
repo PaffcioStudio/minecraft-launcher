@@ -1,0 +1,40 @@
+{
+  "name": "minecraft-launcher",
+  "version": "1.0.0",
+  "description": "A Minecraft launcher with Java management, version handling, and user account management.",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node backend/src/app.js",
+    "dev": "concurrently \"npm run start\" \"npm run electron\"",
+    "electron": "electron ."
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "axios": "^1.8.4",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "fs-extra": "^11.3.0",
+    "helmet": "^7.2.0",
+    "node-fetch": "^3.3.2",
+    "unzipper": "^0.12.3",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "electron": "^33.4.9",
+    "nodemon": "^3.1.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/minecraft-launcher.git"
+  },
+  "keywords": [
+    "minecraft",
+    "launcher",
+    "java",
+    "electron"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

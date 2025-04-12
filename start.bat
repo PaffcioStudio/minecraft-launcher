@@ -1,0 +1,6 @@
+@echo off
+echo Uruchamianie npm run dev...
+npm run dev
+
+echo Proces zakonczony. Nacisnij dowolny klawisz, aby kontynuowac...
+pause

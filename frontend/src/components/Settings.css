@@ -1,0 +1,47 @@
+.settings {
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.settings h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.setting label {
+    width: 120px;
+}
+
+.setting input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.setting input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.settings button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.settings button:hover {
+    background-color: #0056b3;
+}

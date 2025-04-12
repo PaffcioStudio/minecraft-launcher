@@ -1,0 +1,357 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #252525;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+#hamburger {
+    display: none;
+    cursor: pointer;
+    color: #e0e0e0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar a {
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Main Content */
+main {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+    animation: fadeIn 0.5s;
+}
+
+.section {
+    display: none;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section.active {
+    display: block;
+}
+
+h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn.loading {
+    position: relative;
+    padding-right: 30px;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Lists */
+.list {
+    list-style: none;
+}
+
+.list li {
+    background-color: #333;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.list li:hover {
+    transform: scale(1.02);
+}
+
+.list li button {
+    background-color: #ff4444;
+    padding: 5px 10px;
+}
+
+/* Versions List Scrollbar */
+#version-list {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #333;
+}
+
+#version-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#version-list::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+
+#version-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+#version-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Release Date */
+.release-date {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0 10px;
+}
+
+/* Settings Panel */
+.settings-panel {
+    display: grid;
+    gap: 10px;
+}
+
+.settings-panel label {
+    color: #e0e0e0;
+}
+
+.settings-panel select, .settings-panel input {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    padding: 8px;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+.settings-panel input[type="range"] {
+    width: 100%;
+}
+
+#ram-value {
+    color: #007bff;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    animation: slideIn 0.3s;
+}
+
+.close-button {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #e0e0e0;
+}
+
+.modal-content input, .modal-content select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+/* Progress Panel */
+.progress-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2a2a2a;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.progress-panel.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#progress-text {
+    color: #ffffff; /* Zmieniono na biały */
+    font-size: 0.9rem;
+}
+
+#progress-files {
+    color: #ffffff; /* Zmieniono na biały */
+    font-size: 0.9rem;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+#progress-bar::-webkit-progress-bar {
+    background-color: #333;
+    border-radius: 4px;
+}
+
+#progress-bar::-webkit-progress-value {
+    background-color: #007bff;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-250px);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    #hamburger {
+        display: block;
+    }
+
+    main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .progress-panel {
+        padding: 8px;
+    }
+}

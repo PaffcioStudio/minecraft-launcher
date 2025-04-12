@@ -1,0 +1,9 @@
+{
+  "javaVersion": "17",
+  "ramAllocation": "2048",
+  "accounts": [],
+  "instances": [],
+  "assetsPath": "./assets",
+  "librariesPath": "./libraries",
+  "versionsPath": "./versions"
+}

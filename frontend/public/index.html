@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Launcher</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h2>Minecraft Launcher</h2>
+                <span id="hamburger" class="material-icons">menu</span>
+            </div>
+            <ul>
+                <li><a href="#instances" class="active">Instancje</a></li>
+                <li><a href="#accounts">Konta</a></li>
+                <li><a href="#versions">Wersje</a></li>
+                <li><a href="#settings">Ustawienia</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <section id="instances" class="section active">
+                <h2>Instancje</h2>
+                <button id="add-instance-button" class="btn"><span class="material-icons">add</span> Dodaj instancję</button>
+                <ul id="instance-list" class="list"></ul>
+            </section>
+
+            <section id="accounts" class="section">
+                <h2>Konta</h2>
+                <button id="add-account" class="btn"><span class="material-icons">person_add</span> Dodaj konto</button>
+                <ul id="account-list" class="list"></ul>
+            </section>
+
+            <section id="versions" class="section">
+                <h2>Wersje Minecraft</h2>
+                <button id="refresh-versions" class="btn"><span class="material-icons">refresh</span> Odśwież</button>
+                <ul id="version-list" class="list"></ul>
+            </section>
+
+            <section id="settings" class="section">
+                <h2>Ustawienia</h2>
+                <div class="settings-panel">
+                    <label for="java-version">Wersja Javy:</label>
+                    <select id="java-version"></select>
+                    <button id="download-java" class="btn"><span class="material-icons">download</span> Pobierz Javę</button>
+                    <label for="ram-amount">RAM (MB):</label>
+                    <input type="range" id="ram-amount" min="512" max="16384" value="2048">
+                    <span id="ram-value">2048 MB</span>
+                    <button id="save-settings" class="btn"><span class="material-icons">save</span> Zapisz</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modals -->
+        <div id="account-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">×</span>
+                <h2>Dodaj konto</h2>
+                <input type="text" id="account-username" placeholder="Nazwa użytkownika">
+                <label><input type="checkbox" id="offline-account"> Konto offline</label>
+                <button id="save-account" class="btn">Zapisz</button>
+            </div>
+        </div>
+
+        <div id="instance-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">×</span>
+                <h2>Dodaj instancję</h2>
+                <input type="text" id="instance-name" placeholder="Nazwa instancji">
+                <select id="instance-version" placeholder="Wersja gry"></select>
+                <button id="save-instance" class="btn">Zapisz</button>
+            </div>
+        </div>
+
+        <!-- Progress Panel -->
+        <div id="progress-panel" class="progress-panel hidden">
+            <div class="progress-info">
+                <span id="progress-text"></span>
+                <span id="progress-files"></span>
+            </div>
+            <progress id="progress-bar" value="0" max="100"></progress>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

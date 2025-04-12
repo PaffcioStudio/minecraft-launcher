@@ -1,0 +1,58 @@
+.instances {
+    padding: 20px;
+  }
+  
+  .add-instance {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .add-instance input {
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+    width: 150px;
+    transition: all 0.3s ease;
+  }
+  
+  .add-instance input:hover {
+    background: #444;
+    border-color: #777;
+  }
+  
+  .add-instance button, table button {
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .add-instance button:hover, table button:hover {
+    background: #444;
+    border-color: #777;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #555;
+    text-align: left;
+  }
+  
+  th {
+    background: #222;
+  }
+  
+  td {
+    background: #333;
+  }
